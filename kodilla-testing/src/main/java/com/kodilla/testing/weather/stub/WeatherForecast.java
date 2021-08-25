@@ -36,29 +36,42 @@ public class WeatherForecast {
 
     }
 
-    public double calculateMedianTemperature() {
-        List<Double> sortedTemperatures = new LinkedList<>();
-        int counter = 0;
-        int counterSum = 0;
-        for (Map.Entry<String, Double> temperature :
-                temperatures.getTemperatures().entrySet()) {
-            counter++;
-            counterSum += counter;
-            sortedTemperatures.add(temperature.getValue());
-        }
+//    public double calculateMedianTemperature() {
+//        List<Double> sortedTemperatures = new LinkedList<>();
+//        int counter = 0;
+//        int counterSum = 0;
+//        for (Map.Entry<String, Double> temperature :
+//                temperatures.getTemperatures().entrySet()) {
+//            counter++;
+//            counterSum += counter;
+//            sortedTemperatures.add(temperature.getValue());
+//        }
+//
+//        Collections.sort(sortedTemperatures);
+//
+//        if (counterSum % 2 != 0) {
+//            int medianIndex = (counterSum / counter) - 1;
+//            double medianTemperature = sortedTemperatures.get(medianIndex);
+//            return medianTemperature;
+//        }
+//        else {
+//            double medianIndex1 = (counterSum/(double)counter)-1.5;
+//            double medianIndex2 = (counterSum/(double)counter)-0.5;
+//            double medianTemperature = (sortedTemperatures.get((int)medianIndex1)+sortedTemperatures.get((int)medianIndex2))/2;
+//            return medianTemperature;
+//        }
+//    }
 
+    public double calculateMedianTemperature() {
+        List<Double> sortedTemperatures = new ArrayList<>(temperatures.getTemperatures().values());
+        int count = sortedTemperatures.size();
         Collections.sort(sortedTemperatures);
 
-        if (counterSum % 2 != 0) {
-            int medianIndex = (counterSum / counter) - 1;
-            double medianTemperature = sortedTemperatures.get(medianIndex);
-            return medianTemperature;
+        if (count % 2 != 0) {
+           return sortedTemperatures.get(count/2);
         }
         else {
-            double medianIndex1 = (counterSum/(double)counter)-1.5;
-            double medianIndex2 = (counterSum/(double)counter)-0.5;
-            double medianTemperature = (sortedTemperatures.get((int)medianIndex1)+sortedTemperatures.get((int)medianIndex2))/2;
-            return medianTemperature;
+            return (sortedTemperatures.get(count/2) + sortedTemperatures.get((count/2)-1))/2.0;
         }
     }
 }

@@ -17,6 +17,11 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class WeatherForecastTestSuite {
 
+    private WeatherForecast weatherForecast;
+
+    @Mock
+    private Temperatures temperaturesMock;
+
     @BeforeEach
     public void beforeEveryTest() {
         Map<String, Double> temperaturesMap = new HashMap<>();
@@ -25,16 +30,13 @@ public class WeatherForecastTestSuite {
         temperaturesMap.put("Wroclaw", 24.8);
         temperaturesMap.put("Warszawa", 25.2);
         temperaturesMap.put("Gdansk", 26.1);
+        weatherForecast = new WeatherForecast(temperaturesMock);
         when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
     }
-
-    @Mock
-    private Temperatures temperaturesMock;
 
     @Test
     void testCalculateForecastWithMock() {
         //Given
-        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
         //When
         int quantityOfSensors = weatherForecast.calculateForecast().size();
         //Then
@@ -44,7 +46,6 @@ public class WeatherForecastTestSuite {
     @Test
     void testCalculateAverageTemperatureWithMock() {
         //Given
-        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
         //When
         double testAverage = weatherForecast.calculateAverageTemperature();
@@ -56,7 +57,6 @@ public class WeatherForecastTestSuite {
     @Test
     void testCalculateMedianTemperatureWithMock() {
         //Given
-        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
         //When
         double testMedian = weatherForecast.calculateMedianTemperature();

@@ -23,4 +23,5 @@ public class StreamMain {
                 .map(entry -> "#" + entry.getKey() + " " + entry.getValue())
                 .forEach(System.out::println);
     }
+
 }

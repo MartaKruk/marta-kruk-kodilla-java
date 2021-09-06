@@ -53,9 +53,9 @@ public class StatisticsTestSuite {
             assertEquals(5, statisticsCalculator.getNumberOfUsers());
             assertEquals(0, statisticsCalculator.getNumberOfPosts());
             assertEquals(0, statisticsCalculator.getNumberOfComments());
-            assertEquals(0, statisticsCalculator.getAveragePostsPerUser());
-            assertEquals(0, statisticsCalculator.getAverageCommentsPerUser());
-            assertEquals(0, statisticsCalculator.getAverageCommentsPerPost());
+            assertEquals(0.0, statisticsCalculator.getAveragePostsPerUser());
+            assertEquals(0.0, statisticsCalculator.getAverageCommentsPerUser());
+            assertEquals(0.0, statisticsCalculator.getAverageCommentsPerPost());
         }
 
         @DisplayName("Test statistics when number of posts is one thousand")
@@ -72,8 +72,8 @@ public class StatisticsTestSuite {
             assertEquals(100, statisticsCalculator.getNumberOfUsers());
             assertEquals(1000, statisticsCalculator.getNumberOfPosts());
             assertEquals(100, statisticsCalculator.getNumberOfComments());
-            assertEquals(10, statisticsCalculator.getAveragePostsPerUser());
-            assertEquals(1, statisticsCalculator.getAverageCommentsPerUser());
+            assertEquals(10.0, statisticsCalculator.getAveragePostsPerUser());
+            assertEquals(1.0, statisticsCalculator.getAverageCommentsPerUser());
             assertEquals(0.1, statisticsCalculator.getAverageCommentsPerPost());
         }
     }
@@ -96,9 +96,9 @@ public class StatisticsTestSuite {
             assertEquals(100, statisticsCalculator.getNumberOfUsers());
             assertEquals(100, statisticsCalculator.getNumberOfPosts());
             assertEquals(0, statisticsCalculator.getNumberOfComments());
-            assertEquals(1, statisticsCalculator.getAveragePostsPerUser());
-            assertEquals(0, statisticsCalculator.getAverageCommentsPerUser());
-            assertEquals(0, statisticsCalculator.getAverageCommentsPerPost());
+            assertEquals(1.0, statisticsCalculator.getAveragePostsPerUser());
+            assertEquals(0.0, statisticsCalculator.getAverageCommentsPerUser());
+            assertEquals(0.0, statisticsCalculator.getAverageCommentsPerPost());
         }
 
         @DisplayName("Test statistics when number of comments is smaller than the number of posts")
@@ -115,7 +115,7 @@ public class StatisticsTestSuite {
             assertEquals(100, statisticsCalculator.getNumberOfUsers());
             assertEquals(100, statisticsCalculator.getNumberOfPosts());
             assertEquals(10, statisticsCalculator.getNumberOfComments());
-            assertEquals(1, statisticsCalculator.getAveragePostsPerUser());
+            assertEquals(1.0, statisticsCalculator.getAveragePostsPerUser());
             assertEquals(0.1, statisticsCalculator.getAverageCommentsPerUser());
             assertEquals(0.1, statisticsCalculator.getAverageCommentsPerPost());
         }
@@ -135,8 +135,8 @@ public class StatisticsTestSuite {
             assertEquals(10, statisticsCalculator.getNumberOfPosts());
             assertEquals(100, statisticsCalculator.getNumberOfComments());
             assertEquals(0.1, statisticsCalculator.getAveragePostsPerUser());
-            assertEquals(1, statisticsCalculator.getAverageCommentsPerUser());
-            assertEquals(10, statisticsCalculator.getAverageCommentsPerPost());
+            assertEquals(1.0, statisticsCalculator.getAverageCommentsPerUser());
+            assertEquals(10.0, statisticsCalculator.getAverageCommentsPerPost());
         }
     }
 
@@ -158,9 +158,9 @@ public class StatisticsTestSuite {
             assertEquals(0, statisticsCalculator.getNumberOfUsers());
             assertEquals(0, statisticsCalculator.getNumberOfPosts());
             assertEquals(0, statisticsCalculator.getNumberOfComments());
-            assertEquals(0, statisticsCalculator.getAveragePostsPerUser());
-            assertEquals(0, statisticsCalculator.getAverageCommentsPerUser());
-            assertEquals(0, statisticsCalculator.getAverageCommentsPerPost());
+            assertEquals(0.0, statisticsCalculator.getAveragePostsPerUser());
+            assertEquals(0.0, statisticsCalculator.getAverageCommentsPerUser());
+            assertEquals(0.0, statisticsCalculator.getAverageCommentsPerPost());
         }
 
         @DisplayName("Test statistics when number of users is one hundred")
@@ -178,8 +178,8 @@ public class StatisticsTestSuite {
             assertEquals(100, statisticsCalculator.getNumberOfUsers());
             assertEquals(200, statisticsCalculator.getNumberOfPosts());
             assertEquals(100, statisticsCalculator.getNumberOfComments());
-            assertEquals(2, statisticsCalculator.getAveragePostsPerUser());
-            assertEquals(1, statisticsCalculator.getAverageCommentsPerUser());
+            assertEquals(2.0, statisticsCalculator.getAveragePostsPerUser());
+            assertEquals(1.0, statisticsCalculator.getAverageCommentsPerUser());
             assertEquals(0.5, statisticsCalculator.getAverageCommentsPerPost());
         }
     }

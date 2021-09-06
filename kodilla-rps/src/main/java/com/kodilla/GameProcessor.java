@@ -14,6 +14,10 @@ public class GameProcessor {
         this.maxPoints = maxPoints;
     }
 
+    public int getMaxPoints() {
+        return maxPoints;
+    }
+
     public void play() {
         while(player1.getPoints()<maxPoints || player2.getPoints()<maxPoints) {
             int player1Move = player1.getMove();

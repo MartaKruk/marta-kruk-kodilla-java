@@ -1,5 +1,7 @@
 package com.kodilla;
 
+import static com.kodilla.InputOutputController.getPlayerMove;
+
 public class HumanPlayer extends Player {
 
     public HumanPlayer(String name) {
@@ -8,6 +10,6 @@ public class HumanPlayer extends Player {
 
     @Override
     public int getMove() {
-        return 0;
+        return getPlayerMove();
     }
 }

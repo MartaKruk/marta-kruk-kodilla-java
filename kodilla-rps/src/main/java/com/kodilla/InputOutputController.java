@@ -10,6 +10,7 @@ public class InputOutputController {
     public static final Pattern PATTERN = Pattern.compile("^\\d+$");
     private static final String X = "x";
     private static final String N = "n";
+    private static final String Y = "y";
 
     public static String getPlayerName() {
         System.out.println("Hello! Please enter your name: ");
@@ -50,63 +51,29 @@ public class InputOutputController {
         } while (true);
     }
 
-    public static boolean ifRestart() {
-        do {
-            System.out.println("Are you sure you want to restart the game? (y/n)");
-            String answer = scanner.nextLine();
-            if (Objects.equals(answer, "y") || Objects.equals(answer, "n")) {
-                if (Objects.equals(answer, "y")) {
-                    return false;
-                } else {
-                    return InputOutputController.isGameOver();
-                }
-            }
-            System.out.println("Please try again!");
-        } while (true);
-    }
-
-    public static boolean ifExit() {
-        do {
-            System.out.println("Are you sure you want to exit the game? (y/n)");
-            String answer = scanner.nextLine();
-            if (Objects.equals(answer, "y") || Objects.equals(answer, "n")) {
-                if (Objects.equals(answer, "y")) {
-                    return true;
-                } else {
-                    return InputOutputController.isGameOver();
-                }
-            }
-            System.out.println("Please try again!");
-        } while (true);
-    }
-
-    //zmienic na switch
     public static boolean isGameOver() {
         do {
             System.out.println("Do you want to end the game (x) or play again (n)?");
             String answer = scanner.nextLine();
-            if (Objects.equals(answer, "n") || Objects.equals(answer, "x")) {
-                if (Objects.equals(answer, "n")) {
+            switch (answer) {
+                case N:
                     System.out.println("Are you sure you want to restart the game? (y/n)");
-                        String yesOrNo = scanner.nextLine();
-                        if (Objects.equals(yesOrNo, "y") || Objects.equals(yesOrNo, "n")) {
-                            if (Objects.equals(yesOrNo, "y")) {
-                                return false;
-                            } else {
-                                return InputOutputController.isGameOver();
-                            }
-                        }
-                } else {
+                    answer = scanner.nextLine();
+                    switch (answer) {
+                        case Y:
+                            return false;
+                        case N:
+                            return InputOutputController.isGameOver();
+                    }
+                case X:
                     System.out.println("Are you sure you want to exit the game? (y/n)");
-                        answer = scanner.nextLine();
-                        if (Objects.equals(answer, "y") || Objects.equals(answer, "n")) {
-                            if (Objects.equals(answer, "y")) {
-                                return true;
-                            } else {
-                                return InputOutputController.isGameOver();
-                            }
-                        }
-                }
+                    answer = scanner.nextLine();
+                    switch (answer) {
+                        case Y:
+                            return true;
+                        case N:
+                            return InputOutputController.isGameOver();
+                    }
             }
             System.out.println("Please try again!");
         } while (true);

@@ -2,7 +2,6 @@ package com.kodilla;
 
 public class RPSRules implements GameRules {
 
-
     @Override
     public int whoWon(int player1Move, int player2Move) {
         int[][] whoWon = new int[3][3];

@@ -22,22 +22,22 @@ public class GameProcessor {
             if (whoWon == 1) {
                 player1.addPoint();
                 System.out.println("Moves made: " + player1.getName() + " used " + player1Move + ", " + player2.getName() + " used " + player2Move + ".\n" +
-                        player1.getName() + " won this round.\n" +
-                        player1.getName() + " has " + player1.getPoints() + " points. " + player2.getName() + " has " + player2.getPoints() + " points.");
+                        player1.getName() + " won this round.\n");
             } else if (whoWon == 2) {
                 player2.addPoint();
                 System.out.println("Moves made: " + player1.getName() + " used " + player1Move + ", " + player2.getName() + " used " + player2Move + ".\n" +
-                        player2.getName() + " won this round.\n" +
-                        player1.getName() + " has " + player1.getPoints() + " points. " + player2.getName() + " has " + player2.getPoints() + " points.");
+                        player2.getName() + " won this round.\n");
             } else {
                 System.out.println("Moves made: " + player1.getName() + " used " + player1Move + ", " + player2.getName() + " used " + player2Move + ".\n" +
-                        "That's a draw!");
+                        "That's a draw!\n");
             }
+            System.out.println("Current score: " + player1.getName() + ": " + player1.getPoints() + ", " + player2.getName() + ": " + player2.getPoints() + ".");
         }
         if (player1.getPoints()> player2.getPoints()) {
-            System.out.println(player1.getName() + " won! " + player1.getName() + " got " + player1.getPoints() + " points. " + player2.getName() + " got " + player2.getPoints() + " points.");
+            System.out.println(player1.getName() + " won!\n");
         } else {
-            System.out.println(player2.getName() + " won! " + player1.getName() + " got " + player1.getPoints() + " points. " + player2.getName() + " got " + player2.getPoints() + " points.");
+            System.out.println(player2.getName() + " won!\n");
         }
+        System.out.println("End score: " + player1.getName() + ": " + player1.getPoints() + ", " + player2.getName() + ": " + player2.getPoints() + ".");
     }
 }

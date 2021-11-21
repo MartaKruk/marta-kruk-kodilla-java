@@ -17,7 +17,7 @@ public abstract class Player {
         return points;
     }
 
-    public abstract int getMove();
+    public abstract int getMove(GameRules rules);
 
     public void addPoint() {
         points++;

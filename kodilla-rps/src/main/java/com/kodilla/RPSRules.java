@@ -16,4 +16,9 @@ public class RPSRules implements GameRules {
         whoWon[2][2] = 0;
         return whoWon[player1Move-1][player2Move-1];
     }
+
+    @Override
+    public String rulesName() {
+        return "RPS";
+    }
 }

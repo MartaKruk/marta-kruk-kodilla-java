@@ -9,7 +9,7 @@ public class HumanPlayer extends Player {
     }
 
     @Override
-    public int getMove() {
-        return getPlayerMove();
+    public int getMove(GameRules rules) {
+        return getPlayerMove(rules);
     }
 }

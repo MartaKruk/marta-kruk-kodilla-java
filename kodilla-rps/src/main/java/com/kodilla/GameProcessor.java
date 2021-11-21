@@ -15,9 +15,10 @@ public class GameProcessor {
     }
 
     public void play() {
+        InputOutputController.printControlsInformation(rules);
         while(player1.getPoints() < maxPoints && player2.getPoints() < maxPoints) {
-            int player1Move = player1.getMove();
-            int player2Move = player2.getMove();
+            int player1Move = player1.getMove(rules);
+            int player2Move = player2.getMove(rules);
             int whoWon = rules.whoWon(player1Move, player2Move);
             if (whoWon == 1) {
                 player1.addPoint();

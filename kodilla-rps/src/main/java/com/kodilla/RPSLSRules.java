@@ -32,4 +32,9 @@ public class RPSLSRules implements GameRules {
         whoWon[4][4] = 0;
         return whoWon[player1Move-1][player2Move-1];
     }
+
+    @Override
+    public String rulesName() {
+        return "RPSLS";
+    }
 }

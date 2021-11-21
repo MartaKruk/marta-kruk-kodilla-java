@@ -1,6 +1,5 @@
 package com.kodilla;
 
-import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -11,10 +10,28 @@ public class InputOutputController {
     private static final String X = "x";
     private static final String N = "n";
     private static final String Y = "y";
+    private static final String RPS = "RPS";
 
     public static String getPlayerName() {
         System.out.println("Hello! Please enter your name: ");
             return scanner.nextLine();
+    }
+
+    public static GameRules getRules() {
+        System.out.println("Do you want to play Rock-Paper-Scissors (1) or Rock-Paper-Scissors-Lizard-Spock (2)?");
+        do {
+            String value = scanner.nextLine();
+            boolean isNumber = isNaturalNumber(value);
+            if (isNumber) {
+                int number = Integer.parseInt(value);
+                if (number == 1) {
+                    return new RPSRules();
+                } else if (number == 2) {
+                    return new RPSLSRules();
+                }
+            }
+            System.out.println("Wrong number. Please enter your number again!");
+        } while (true);
     }
 
     public static int getMaxPoints() {
@@ -32,19 +49,29 @@ public class InputOutputController {
         } while (true);
     }
 
-    public static void printControlsInformation() {
-        System.out.println("Game controls:\n1 - stone\n2 - paper\n3 - scissors\nx - end game\nn - play again");
+    public static void printControlsInformation(GameRules rules) {
+        if (rules.rulesName().equals(RPS)) {
+            System.out.println("Game controls:\n1 - stone\n2 - paper\n3 - scissors");
+        } else {
+            System.out.println("Game controls:\n1 - stone\n2 - paper\n3 - scissors\n4 - lizard\n5 - Spock");
+        }
     }
 
-    public static int getPlayerMove() {
+    public static int getPlayerMove(GameRules rules) {
         System.out.println("Please enter your move: ");
         do {
             String value = scanner.nextLine();
             boolean isNumber = isNaturalNumber(value);
             if (isNumber) {
                 int number = Integer.parseInt(value);
-                if (number > 0 && number < 4) {
-                    return number;
+                if (rules.rulesName().equals(RPS)) {
+                    if (number > 0 && number < 4) {
+                        return number;
+                    }
+                } else {
+                    if (number > 0 && number < 6) {
+                        return number;
+                    }
                 }
             }
             System.out.println("Please enter your move again!");

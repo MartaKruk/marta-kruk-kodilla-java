@@ -11,8 +11,11 @@ public class ComputerPlayer extends Player{
     }
 
     @Override
-    public int getMove() {
-
-        return random.nextInt(3) + 1;
+    public int getMove(GameRules rules) {
+        if (rules.rulesName().equals("RPS")) {
+            return random.nextInt(3) + 1;
+        } else {
+            return random.nextInt(5) + 1;
+        }
     }
 }
